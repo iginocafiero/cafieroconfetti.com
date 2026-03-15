@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preload" href="/images/hero-main.webp" as="image" type="image/webp">
   <title>CAFIERO â Sicilian Confetti | Italian Wedding Favors & Bomboniere</title>
   <meta name="description" content="Sicilian confetti, crafted by hand from the almonds of Avola. Italian wedding favors and bomboniere for your celebration.">
   <meta property="og:title" content="CAFIERO â Sicilian Confetti">
@@ -13,278 +14,32 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&display=swap"></noscript>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TBXM97PP8D"></script>
+  <!-- Google tag (gtag.js) - deferred for performance -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
-    gtag("js", new Date());
-    gtag("config", "G-TBXM97PP8D");
+    // Defer GA4 loading until after first paint
+    (function() {
+      function loadGA() {
+        var s = document.createElement('script');
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-TBXM97PP8D';
+        s.async = true;
+        document.head.appendChild(s);
+        gtag("js", new Date());
+        gtag("config", "G-TBXM97PP8D");
+      }
+      if ('requestIdleCallback' in window) {
+        requestIdleCallback(loadGA, {timeout: 3000});
+      } else {
+        setTimeout(loadGA, 1500);
+      }
+    })();
   </script>
 </head>
 <body style="margin:0;padding:0;">
 <div id="cafiero-confetti">
 <link rel="preload" as="image" type="image/webp" href="/images/hero-main.webp">
-<style>
-/* ============================================
-   Cafiero Confetti — Mobile Conversion Overrides
-   External CSS loaded via GitHub Pages
-   Edit this file to update mobile styles instantly
-   Targets: #caf-classic, #caf-ivory, #caf-sachet, #caf-bespoke, #caf-bomb, #caf-limone
-   ============================================ */
-
-@media (max-width: 768px) {
-
-  /* 1. Shrink product image so title+price+ATC visible above fold */
-  #caf-classic .caf-product-img,
-  #caf-ivory .caf-product-img,
-  #caf-sachet .caf-product-img,
-  #caf-bespoke .caf-product-img,
-  #caf-bomb .caf-product-img,
-  #caf-limone .caf-product-img {
-    max-height: 280px !important;
-    overflow: hidden !important;
-  }
-  #caf-classic .caf-product-img img,
-  #caf-ivory .caf-product-img img,
-  #caf-sachet .caf-product-img img,
-  #caf-bespoke .caf-product-img img,
-  #caf-bomb .caf-product-img img,
-  #caf-limone .caf-product-img img {
-    object-fit: cover !important;
-    height: 280px !important;
-  }
-
-  /* 2. Tighten product info spacing */
-  #caf-classic .caf-product,
-  #caf-ivory .caf-product,
-  #caf-sachet .caf-product,
-  #caf-bespoke .caf-product,
-  #caf-bomb .caf-product,
-  #caf-limone .caf-product {
-    gap: 16px !important;
-    margin-top: 16px !important;
-    padding-bottom: 20px !important;
-  }
-  #caf-classic .caf-product-info,
-  #caf-ivory .caf-product-info,
-  #caf-sachet .caf-product-info,
-  #caf-bespoke .caf-product-info,
-  #caf-bomb .caf-product-info,
-  #caf-limone .caf-product-info {
-    padding: 0 20px !important;
-  }
-  #caf-classic .caf-product-title,
-  #caf-ivory .caf-product-title,
-  #caf-sachet .caf-product-title,
-  #caf-bespoke .caf-product-title,
-  #caf-bomb .caf-product-title,
-  #caf-limone .caf-product-title {
-    font-size: 28px !important;
-    margin-bottom: 6px !important;
-  }
-  #caf-classic .caf-product-label,
-  #caf-ivory .caf-product-label,
-  #caf-sachet .caf-product-label,
-  #caf-bespoke .caf-product-label,
-  #caf-bomb .caf-product-label,
-  #caf-limone .caf-product-label {
-    font-size: 10px !important;
-    margin-bottom: 4px !important;
-  }
-
-  /* 3. Make includes info visible right under price */
-  #caf-classic .caf-includes,
-  #caf-ivory .caf-includes,
-  #caf-sachet .caf-includes,
-  #caf-bespoke .caf-includes,
-  #caf-bomb .caf-includes,
-  #caf-limone .caf-includes {
-    font-size: 12px !important;
-    padding: 8px 20px !important;
-    margin-top: -8px !important;
-    opacity: 0.7;
-  }
-
-  /* 4. Ensure sticky bottom bar is always prominent */
-  #caf-classic .caf-bottom-bar,
-  #caf-ivory .caf-bottom-bar,
-  #caf-sachet .caf-bottom-bar,
-  #caf-bespoke .caf-bottom-bar,
-  #caf-bomb .caf-bottom-bar,
-  #caf-limone .caf-bottom-bar {
-    padding: 12px 20px !important;
-    box-shadow: 0 -2px 10px rgba(0,0,0,0.15) !important;
-  }
-
-  /* 5. Add body padding for sticky bar */
-  #caf-classic,
-  #caf-ivory,
-  #caf-sachet,
-  #caf-bespoke,
-  #caf-bomb,
-  #caf-limone {
-    padding-bottom: 70px !important;
-  }
-
-  /* 6. Condense story sections */
-  #caf-classic .caf-section,
-  #caf-ivory .caf-section,
-  #caf-sachet .caf-section,
-  #caf-bespoke .caf-section,
-  #caf-bomb .caf-section,
-  #caf-limone .caf-section {
-    padding: 24px 20px !important;
-  }
-  #caf-classic .caf-section h2,
-  #caf-ivory .caf-section h2,
-  #caf-sachet .caf-section h2,
-  #caf-bespoke .caf-section h2,
-  #caf-bomb .caf-section h2,
-  #caf-limone .caf-section h2 {
-    font-size: 22px !important;
-    margin-bottom: 10px !important;
-  }
-  #caf-classic .caf-section p,
-  #caf-ivory .caf-section p,
-  #caf-sachet .caf-section p,
-  #caf-bespoke .caf-section p,
-  #caf-bomb .caf-section p,
-  #caf-limone .caf-section p {
-    font-size: 14px !important;
-    line-height: 1.5 !important;
-  }
-  #caf-classic .caf-section-divider,
-  #caf-ivory .caf-section-divider,
-  #caf-sachet .caf-section-divider,
-  #caf-bespoke .caf-section-divider,
-  #caf-bomb .caf-section-divider,
-  #caf-limone .caf-section-divider {
-    margin: 16px auto !important;
-  }
-
-  /* 7. Condense tradition/blessings */
-  #caf-classic .caf-tradition,
-  #caf-ivory .caf-tradition,
-  #caf-sachet .caf-tradition,
-  #caf-bespoke .caf-tradition,
-  #caf-bomb .caf-tradition,
-  #caf-limone .caf-tradition {
-    padding: 24px 20px !important;
-  }
-  #caf-classic .caf-blessings,
-  #caf-ivory .caf-blessings,
-  #caf-sachet .caf-blessings,
-  #caf-bespoke .caf-blessings,
-  #caf-bomb .caf-blessings,
-  #caf-limone .caf-blessings {
-    gap: 12px !important;
-  }
-
-  /* 8. Hide Explore Custom Orders CTA on mobile */
-  #caf-classic .caf-wedding-cta,
-  #caf-ivory .caf-wedding-cta,
-  #caf-sachet .caf-wedding-cta,
-  #caf-bespoke .caf-wedding-cta,
-  #caf-bomb .caf-wedding-cta,
-  #caf-limone .caf-wedding-cta {
-    display: none !important;
-  }
-  #caf-classic .caf-wedding,
-  #caf-ivory .caf-wedding,
-  #caf-sachet .caf-wedding,
-  #caf-bespoke .caf-wedding,
-  #caf-bomb .caf-wedding,
-  #caf-limone .caf-wedding {
-    padding: 20px !important;
-  }
-
-  /* 9. Make cross-sell section more prominent */
-  #caf-classic .caf-crosssell,
-  #caf-ivory .caf-crosssell,
-  #caf-sachet .caf-crosssell,
-  #caf-bespoke .caf-crosssell,
-  #caf-bomb .caf-crosssell,
-  #caf-limone .caf-crosssell {
-    background: #f9f7f4 !important;
-    margin-top: 8px !important;
-  }
-  #caf-classic .caf-crosssell h2,
-  #caf-ivory .caf-crosssell h2,
-  #caf-sachet .caf-crosssell h2,
-  #caf-bespoke .caf-crosssell h2,
-  #caf-bomb .caf-crosssell h2,
-  #caf-limone .caf-crosssell h2 {
-    font-size: 20px !important;
-    margin-bottom: 16px !important;
-  }
-  #caf-classic .caf-crosssell-grid,
-  #caf-ivory .caf-crosssell-grid,
-  #caf-sachet .caf-crosssell-grid,
-  #caf-bespoke .caf-crosssell-grid,
-  #caf-bomb .caf-crosssell-grid,
-  #caf-limone .caf-crosssell-grid {
-    gap: 16px !important;
-  }
-
-  /* 10. Reduce nav padding */
-  #caf-classic .caf-nav,
-  #caf-ivory .caf-nav,
-  #caf-sachet .caf-nav,
-  #caf-bespoke .caf-nav,
-  #caf-bomb .caf-nav,
-  #caf-limone .caf-nav {
-    padding: 10px 16px !important;
-  }
-
-}
-
-/* ============================================
-   Homepage — Image CDN Optimization
-   Desktop: use format=1500w (already set in inline HTML)
-   Mobile: override to format=750w (2x retina is plenty
-   for 375px screens, ~50% smaller than 1500w)
-   ============================================ */
-
-/* Desktop — keep 1500w for large screens */
-#cc-hero-img {
-  background-image: url('/images/hero-main.webp') !important;
-}
-#cc-ritual-img {
-  background-image: url('/images/ritual-section.webp') !important;
-}
-#cc-sicily-img {
-  background-image: url('https://images.squarespace-cdn.com/content/69abf40dda0d6b29e5683736/5155bf0e-1027-46f9-a005-71b305cd302c/Gemini_Generated_Image_gpa9v4gpa9v4gpa9+%281%29.png?format=1500w') !important;
-}
-
-/* Mobile — serve smaller images */
-@media (max-width: 768px) {
-  #cc-hero-img {
-    background-image: url('/images/hero-main.webp') !important;
-  }
-  #cc-ritual-img {
-    background-image: url('/images/ritual-section.webp') !important;
-  }
-  #cc-sicily-img {
-    background-image: url('https://images.squarespace-cdn.com/content/69abf40dda0d6b29e5683736/5155bf0e-1027-46f9-a005-71b305cd302c/Gemini_Generated_Image_gpa9v4gpa9v4gpa9+%281%29.png?format=750w') !important;
-  }
-  #cc-wedding-img {
-    background-image: url('https://images.squarespace-cdn.com/content/69abf40dda0d6b29e5683736/578a5481-6038-4868-880b-10af3cff0a21/Gemini_Generated_Image_idw53aidw53aidw5.png?format=750w') !important;
-  }
-  #cc-gift-img {
-    background-image: url('https://images.squarespace-cdn.com/content/69abf40dda0d6b29e5683736/5589fbef-6c24-4146-8bdb-df9def7be93e/Gemini_Generated_Image_2cjvb72cjvb72cjv.png?format=750w') !important;
-  }
-
-  /* Lazy-load: hide below-fold background images until JS reveals them */
-  #cc-ritual-img.cc-lazy,
-  #cc-wedding-img.cc-lazy,
-  #cc-gift-img.cc-lazy,
-  #cc-sicily-img.cc-lazy {
-    background-image: none !important;
-  }
-}
-
-</style>
+<style>@media (max-width:768px){#caf-classic .caf-product-img,#caf-ivory .caf-product-img,#caf-sachet .caf-product-img,#caf-bespoke .caf-product-img,#caf-bomb .caf-product-img,#caf-limone .caf-product-img{max-height:280px !important;overflow:hidden !important;}#caf-classic .caf-product-img img,#caf-ivory .caf-product-img img,#caf-sachet .caf-product-img img,#caf-bespoke .caf-product-img img,#caf-bomb .caf-product-img img,#caf-limone .caf-product-img img{object-fit:cover !important;height:280px !important;}#caf-classic .caf-product,#caf-ivory .caf-product,#caf-sachet .caf-product,#caf-bespoke .caf-product,#caf-bomb .caf-product,#caf-limone .caf-product{gap:16px !important;margin-top:16px !important;padding-bottom:20px !important;}#caf-classic .caf-product-info,#caf-ivory .caf-product-info,#caf-sachet .caf-product-info,#caf-bespoke .caf-product-info,#caf-bomb .caf-product-info,#caf-limone .caf-product-info{padding:0 20px !important;}#caf-classic .caf-product-title,#caf-ivory .caf-product-title,#caf-sachet .caf-product-title,#caf-bespoke .caf-product-title,#caf-bomb .caf-product-title,#caf-limone .caf-product-title{font-size:28px !important;margin-bottom:6px !important;}#caf-classic .caf-product-label,#caf-ivory .caf-product-label,#caf-sachet .caf-product-label,#caf-bespoke .caf-product-label,#caf-bomb .caf-product-label,#caf-limone .caf-product-label{font-size:10px !important;margin-bottom:4px !important;}#caf-classic .caf-includes,#caf-ivory .caf-includes,#caf-sachet .caf-includes,#caf-bespoke .caf-includes,#caf-bomb .caf-includes,#caf-limone .caf-includes{font-size:12px !important;padding:8px 20px !important;margin-top:-8px !important;opacity:0.7;}#caf-classic .caf-bottom-bar,#caf-ivory .caf-bottom-bar,#caf-sachet .caf-bottom-bar,#caf-bespoke .caf-bottom-bar,#caf-bomb .caf-bottom-bar,#caf-limone .caf-bottom-bar{padding:12px 20px !important;box-shadow:0 -2px 10px rgba(0,0,0,0.15) !important;}#caf-classic,#caf-ivory,#caf-sachet,#caf-bespoke,#caf-bomb,#caf-limone{padding-bottom:70px !important;}#caf-classic .caf-section,#caf-ivory .caf-section,#caf-sachet .caf-section,#caf-bespoke .caf-section,#caf-bomb .caf-section,#caf-limone .caf-section{padding:24px 20px !important;}#caf-classic .caf-section h2,#caf-ivory .caf-section h2,#caf-sachet .caf-section h2,#caf-bespoke .caf-section h2,#caf-bomb .caf-section h2,#caf-limone .caf-section h2{font-size:22px !important;margin-bottom:10px !important;}#caf-classic .caf-section p,#caf-ivory .caf-section p,#caf-sachet .caf-section p,#caf-bespoke .caf-section p,#caf-bomb .caf-section p,#caf-limone .caf-section p{font-size:14px !important;line-height:1.5 !important;}#caf-classic .caf-section-divider,#caf-ivory .caf-section-divider,#caf-sachet .caf-section-divider,#caf-bespoke .caf-section-divider,#caf-bomb .caf-section-divider,#caf-limone .caf-section-divider{margin:16px auto !important;}#caf-classic .caf-tradition,#caf-ivory .caf-tradition,#caf-sachet .caf-tradition,#caf-bespoke .caf-tradition,#caf-bomb .caf-tradition,#caf-limone .caf-tradition{padding:24px 20px !important;}#caf-classic .caf-blessings,#caf-ivory .caf-blessings,#caf-sachet .caf-blessings,#caf-bespoke .caf-blessings,#caf-bomb .caf-blessings,#caf-limone .caf-blessings{gap:12px !important;}#caf-classic .caf-wedding-cta,#caf-ivory .caf-wedding-cta,#caf-sachet .caf-wedding-cta,#caf-bespoke .caf-wedding-cta,#caf-bomb .caf-wedding-cta,#caf-limone .caf-wedding-cta{display:none !important;}#caf-classic .caf-wedding,#caf-ivory .caf-wedding,#caf-sachet .caf-wedding,#caf-bespoke .caf-wedding,#caf-bomb .caf-wedding,#caf-limone .caf-wedding{padding:20px !important;}#caf-classic .caf-crosssell,#caf-ivory .caf-crosssell,#caf-sachet .caf-crosssell,#caf-bespoke .caf-crosssell,#caf-bomb .caf-crosssell,#caf-limone .caf-crosssell{background:#f9f7f4 !important;margin-top:8px !important;}#caf-classic .caf-crosssell h2,#caf-ivory .caf-crosssell h2,#caf-sachet .caf-crosssell h2,#caf-bespoke .caf-crosssell h2,#caf-bomb .caf-crosssell h2,#caf-limone .caf-crosssell h2{font-size:20px !important;margin-bottom:16px !important;}#caf-classic .caf-crosssell-grid,#caf-ivory .caf-crosssell-grid,#caf-sachet .caf-crosssell-grid,#caf-bespoke .caf-crosssell-grid,#caf-bomb .caf-crosssell-grid,#caf-limone .caf-crosssell-grid{gap:16px !important;}#caf-classic .caf-nav,#caf-ivory .caf-nav,#caf-sachet .caf-nav,#caf-bespoke .caf-nav,#caf-bomb .caf-nav,#caf-limone .caf-nav{padding:10px 16px !important;}}#cc-hero-img{background-image:url('/images/hero-main.webp') !important;}#cc-ritual-img{background-image:url('/images/ritual-section.webp') !important;}#cc-sicily-img{background-image:url('https://images.squarespace-cdn.com/content/69abf40dda0d6b29e5683736/5155bf0e-1027-46f9-a005-71b305cd302c/Gemini_Generated_Image_gpa9v4gpa9v4gpa9+%281%29.png?format=1500w') !important;}@media (max-width:768px){#cc-hero-img{background-image:url('/images/hero-main.webp') !important;}#cc-ritual-img{background-image:url('/images/ritual-section.webp') !important;}#cc-sicily-img{background-image:url('https://images.squarespace-cdn.com/content/69abf40dda0d6b29e5683736/5155bf0e-1027-46f9-a005-71b305cd302c/Gemini_Generated_Image_gpa9v4gpa9v4gpa9+%281%29.png?format=750w') !important;}#cc-wedding-img{background-image:url('https://images.squarespace-cdn.com/content/69abf40dda0d6b29e5683736/578a5481-6038-4868-880b-10af3cff0a21/Gemini_Generated_Image_idw53aidw53aidw5.png?format=750w') !important;}#cc-gift-img{background-image:url('https://images.squarespace-cdn.com/content/69abf40dda0d6b29e5683736/5589fbef-6c24-4146-8bdb-df9def7be93e/Gemini_Generated_Image_2cjvb72cjvb72cjv.png?format=750w') !important;}#cc-ritual-img.cc-lazy,#cc-wedding-img.cc-lazy,#cc-gift-img.cc-lazy,#cc-sicily-img.cc-lazy{background-image:none !important;}}</style>
 <style>
 /* ===== RESET & BASE ===== */
 #cafiero-confetti { margin:0; padding:0; font-family:'Barlow',sans-serif; font-weight:300; color:#2C2A26; background:#FAF8F4; line-height:1.6; -webkit-font-smoothing:antialiased; overflow-x:hidden; }
