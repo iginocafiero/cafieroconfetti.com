@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop — Cafiero Confetti</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&display=swap" rel="stylesheet">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TBXM97PP8D"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-TBXM97PP8D");</script>
+</head>
+<body style="margin:0;padding:0;">
+<div id="cafiero-confetti">
+<style>
+/* ===== RESET & BASE ===== */
+#cafiero-confetti { margin:0; padding:0; font-family:'Barlow',sans-serif; font-weight:300; color:#2C2A26; background:#FAF8F4; line-height:1.6; -webkit-font-smoothing:antialiased; overflow-x:hidden; }
+#cafiero-confetti *, #cafiero-confetti *::before, #cafiero-confetti *::after { margin:0; padding:0; box-sizing:border-box; }
+#cafiero-confetti img { max-width:100%; display:block; }
+#cafiero-confetti a { color:inherit; text-decoration:none; }
+
+/* ===== NAVIGATION ===== */
+#cafiero-confetti .cc-nav { position:fixed; top:0; left:0; right:0; z-index:1000; padding:20px 40px; display:flex; justify-content:space-between; align-items:center; background:rgba(250,248,244,0.97); backdrop-filter:blur(10px); box-shadow:0 1px 0 rgba(0,0,0,0.06); }
+#cafiero-confetti .cc-nav-brand { font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:300; letter-spacing:0.2em; color:#2C2A26; }
+#cafiero-confetti .cc-nav-links { display:flex; gap:32px; align-items:center; }
+#cafiero-confetti .cc-nav-links a { font-family:'Barlow',sans-serif; font-weight:400; font-size:13px; letter-spacing:0.1em; text-transform:uppercase; color:#2C2A26; transition:color 0.3s ease; }
+#cafiero-confetti .cc-nav-links a:hover { color:#C9A96E; }
+#cafiero-confetti .cc-nav-mobile { display:none; cursor:pointer; }
+#cafiero-confetti .cc-nav-mobile span { display:block; width:24px; height:1.5px; background:#2C2A26; margin:5px 0; }
+
+/* ===== SHARED ===== */
+#cafiero-confetti .cc-btn { display:inline-block; font-family:'Barlow Condensed',sans-serif; font-weight:500; font-size:13px; letter-spacing:0.2em; text-transform:uppercase; padding:14px 40px; border:1.5px solid #C9A96E; color:#C9A96E; background:transparent; cursor:pointer; transition:all 0.3s ease; }
+#cafiero-confetti .cc-btn:hover { background:#C9A96E; color:#FAF8F4; }
+#cafiero-confetti .cc-divider { width:60px; height:1px; background:#D4C5A9; margin:0 auto 32px; }
+#cafiero-confetti .cc-section-label { font-family:'Barlow Condensed',sans-serif; font-weight:500; font-size:12px; letter-spacing:0.25em; text-transform:uppercase; color:#8A847A; }
+
+/* ===== SHOP HERO ===== */
+#cafiero-confetti .cc-shop-hero { padding:140px 40px 80px; text-align:center; background:#F3F0EA; }
+#cafiero-confetti .cc-shop-hero h1 { font-family:'Cormorant Garamond',serif; font-weight:300; font-size:clamp(36px, 5vw, 56px); color:#2C2A26; margin-bottom:16px; line-height:1.1; }
+#cafiero-confetti .cc-shop-hero p { font-family:'Barlow',sans-serif; font-weight:300; font-size:16px; color:#8A847A; max-width:560px; margin:0 auto; line-height:1.7; }
+
+/* ===== PRODUCT GRID ===== */
+#cafiero-confetti .cc-shop-grid-wrap { padding:80px 40px 100px; background:#FAF8F4; }
+#cafiero-confetti .cc-shop-grid-inner { max-width:1100px; margin:0 auto; }
+#cafiero-confetti .cc-shop-grid { display:grid; grid-template-columns:repeat(3, 1fr); gap:24px; }
+#cafiero-confetti .cc-shop-card { background:#F3F0EA; overflow:hidden; transition:transform 0.3s ease; }
+#cafiero-confetti .cc-shop-card:hover { transform:translateY(-4px); }
+#cafiero-confetti .cc-shop-card-img { width:100%; aspect-ratio:1; overflow:hidden; background-size:cover; background-position:center; }
+#cafiero-confetti .cc-shop-card-img-link { display:block; }
+#cafiero-confetti .cc-shop-card-name a { color:inherit; text-decoration:none; }
+#cafiero-confetti .cc-shop-card-name a:hover { color:#C9A96E; }
+#cafiero-confetti .cc-shop-card-info { padding:24px; }
+#cafiero-confetti .cc-shop-card-name { font-family:'Cormorant Garamond',serif; font-weight:400; font-size:20px; color:#2C2A26; margin-bottom:4px; }
+#cafiero-confetti .cc-shop-card-sub { font-family:'Barlow',sans-serif; font-weight:300; font-size:13px; color:#8A847A; margin-bottom:12px; }
+#cafiero-confetti .cc-shop-card-price { font-family:'Barlow Condensed',sans-serif; font-weight:500; font-size:15px; letter-spacing:0.05em; color:#C9A96E; margin-bottom:16px; }
+#cafiero-confetti .cc-shop-card-atc { display:block; width:100%; font-family:'Barlow Condensed',sans-serif; font-weight:500; font-size:13px; letter-spacing:0.2em; text-transform:uppercase; padding:14px 20px; border:none; background:#C9A96E; color:#FAF8F4; cursor:pointer; transition:all 0.3s ease; text-align:center; }
+#cafiero-confetti .cc-shop-card-atc:hover { background:#B8983F; }
+#cafiero-confetti .cc-shop-card-atc:active { transform:scale(0.97); }
+
+/* ===== POPUP OVERLAY ===== */
+#cafiero-confetti .cc-popup-overlay { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(44,42,38,0.55); z-index:9999; align-items:center; justify-content:center; }
+#cafiero-confetti .cc-popup-overlay.cc-popup-open { display:flex; }
+#cafiero-confetti .cc-popup { background:#FAF8F4; max-width:440px; width:90%; padding:40px 36px; text-align:center; position:relative; border-radius:2px; box-shadow:0 20px 60px rgba(0,0,0,0.15); }
+#cafiero-confetti .cc-popup-close { position:absolute; top:14px; right:18px; background:none; border:none; font-size:22px; color:#B0A99F; cursor:pointer; line-height:1; }
+#cafiero-confetti .cc-popup-close:hover { color:#2C2A26; }
+#cafiero-confetti .cc-popup-title { font-family:'Cormorant Garamond',serif; font-weight:300; font-style:italic; font-size:26px; color:#2C2A26; margin-bottom:12px; }
+#cafiero-confetti .cc-popup-msg { font-size:15px; color:#8A847A; line-height:1.7; margin-bottom:24px; }
+#cafiero-confetti .cc-popup-divider { width:40px; height:1px; background:#D4C5A9; margin:0 auto 24px; }
+#cafiero-confetti .cc-popup-email-label { font-family:'Barlow Condensed',sans-serif; font-weight:500; font-size:12px; letter-spacing:0.15em; text-transform:uppercase; color:#B0A99F; margin-bottom:10px; }
+#cafiero-confetti .cc-popup-email { width:100%; height:44px; border:1.5px solid #D4C5A9; background:transparent; padding:0 16px; font-family:'Barlow',sans-serif; font-size:15px; color:#2C2A26; outline:none; margin-bottom:16px; }
+#cafiero-confetti .cc-popup-email:focus { border-color:#C9A96E; }
+#cafiero-confetti .cc-popup-submit { display:inline-block; font-family:'Barlow Condensed',sans-serif; font-weight:500; font-size:14px; letter-spacing:0.2em; text-transform:uppercase; padding:14px 44px; border:none; background:#C9A96E; color:#FAF8F4; cursor:pointer; transition:all 0.3s; }
+#cafiero-confetti .cc-popup-submit:hover { background:#B8983F; }
+#cafiero-confetti .cc-popup-skip { display:block; margin-top:14px; font-size:13px; color:#B0A99F; cursor:pointer; background:none; border:none; font-family:'Barlow',sans-serif; }
+#cafiero-confetti .cc-popup-skip:hover { color:#8A847A; }
+#cafiero-confetti .cc-popup-thanks { display:none; }
+#cafiero-confetti .cc-popup-thanks p { font-size:15px; color:#8A847A; line-height:1.7; }
+
+/* ===== WEDDING CTA ===== */
+#cafiero-confetti .cc-shop-cta { padding:80px 40px; background:#F3F0EA; text-align:center; }
+#cafiero-confetti .cc-shop-cta-inner { max-width:640px; margin:0 auto; }
+#cafiero-confetti .cc-shop-cta h2 { font-family:'Cormorant Garamond',serif; font-weight:300; font-style:italic; font-size:clamp(28px, 4vw, 40px); color:#2C2A26; margin-bottom:16px; }
+#cafiero-confetti .cc-shop-cta p { font-family:'Barlow',sans-serif; font-weight:300; font-size:15px; color:#8A847A; line-height:1.7; margin-bottom:32px; }
+
+/* ===== FOOTER ===== */
+#cafiero-confetti .cc-footer { background:#2C2A26; padding:60px 40px 40px; }
+#cafiero-confetti .cc-footer-inner { max-width:1100px; margin:0 auto; display:grid; grid-template-columns:1.5fr 1fr 1fr; gap:40px; }
+#cafiero-confetti .cc-footer-brand { font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:300; letter-spacing:0.15em; color:#C9A96E; margin-bottom:16px; }
+#cafiero-confetti .cc-footer-tagline { font-family:'Cormorant Garamond',serif; font-style:italic; font-size:15px; color:rgba(250,248,244,0.5); line-height:1.6; }
+#cafiero-confetti .cc-footer h4 { font-family:'Barlow Condensed',sans-serif; font-weight:500; font-size:12px; letter-spacing:0.2em; text-transform:uppercase; color:rgba(250,248,244,0.4); margin-bottom:16px; }
+#cafiero-confetti .cc-footer a { font-family:'Barlow',sans-serif; font-weight:300; font-size:14px; color:rgba(250,248,244,0.65); display:block; margin-bottom:10px; transition:color 0.3s ease; }
+#cafiero-confetti .cc-footer a:hover { color:#C9A96E; }
+#cafiero-confetti .cc-footer-bottom { max-width:1100px; margin:40px auto 0; padding-top:24px; border-top:1px solid rgba(250,248,244,0.08); display:flex; justify-content:space-between; align-items:center; }
+#cafiero-confetti .cc-footer-copy { font-family:'Barlow',sans-serif; font-weight:300; font-size:12px; color:rgba(250,248,244,0.3); }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width:768px) {
+  #cafiero-confetti .cc-nav-links { display:none; }
+  #cafiero-confetti .cc-nav-mobile { display:block; }
+  #cafiero-confetti .cc-shop-grid { grid-template-columns:repeat(2, 1fr); }
+  #cafiero-confetti .cc-footer-inner { grid-template-columns:1fr; }
+}
+@media (max-width:480px) {
+  #cafiero-confetti .cc-shop-grid { grid-template-columns:1fr; }
+}
+</style>
+
+<!-- NAV -->
+<div class="cc-nav">
+  <a href="/" class="cc-nav-brand">CAFIERO</a>
+  <div class="cc-nav-links">
+    <a href="/shop" style="color:#C9A96E">Shop</a>
+    <a href="/the-ritual">The Ritual</a>
+    <a href="/weddings">Weddings</a>
+    <a href="/gifting">Gifting</a>
+    <a href="/journal">Journal</a>
+    <a href="/contact">Contact</a>
+  </div>
+  <div class="cc-nav-mobile"><span></span><span></span><span></span></div>
+</div>
+
+<!-- HERO -->
+<div class="cc-shop-hero">
+  <h1>The Collection</h1>
+  <p>Sicilian Confetti — Crafted by hand in Avola, Sicily. A timeless symbol of la dolce vita — each piece crafted by hand following generations of Sicilian tradition.</p>
+</div>
+
+<!-- PRODUCT GRID -->
+<div class="cc-shop-grid-wrap">
+  <div class="cc-shop-grid-inner">
+    <div class="cc-shop-grid">
+
+      <div class="cc-shop-card">
+        <a href="/classic-white-confetti" class="cc-shop-card-img-link"><div class="cc-shop-card-img" style="background:url('https://images.squarespace-cdn.com/content/v1/69abf40dda0d6b29e5683736/8eb1f61b-ddc7-4cf1-a7ef-1e7037316292/classic-white-thumb.png?format=500w') center/cover no-repeat;"></div></a>
+        <div class="cc-shop-card-info">
+          <div class="cc-shop-card-name"><a href="/classic-white-confetti">Classic White</a></div>
+          <div class="cc-shop-card-sub">The original. Five centuries of tradition.</div>
+          <div class="cc-shop-card-price">$32 · 250g</div>
+          <button class="cc-shop-card-atc" data-product="Classic White" data-id="classic-white" data-price="32">Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="cc-shop-card">
+        <a href="/the-ivory-box" class="cc-shop-card-img-link"><div class="cc-shop-card-img" style="background:url('https://images.squarespace-cdn.com/content/69abf40dda0d6b29e5683736/880f0ceb-be2f-4513-8b44-fbafe220a453/ivory-box-product-new-thumb.jpg?format=500w') center/cover no-repeat;"></div></a>
+        <div class="cc-shop-card-info">
+          <div class="cc-shop-card-name"><a href="/the-ivory-box">The Ivory Box</a></div>
+          <div class="cc-shop-card-sub">The complete wedding gift. Five blessings.</div>
+          <div class="cc-shop-card-price">$38 · Gift Box</div>
+          <button class="cc-shop-card-atc" data-product="Classic White" data-id="classic-white" data-price="32">Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="cc-shop-card">
+        <a href="/pastel-assortment" class="cc-shop-card-img-link"><div class="cc-shop-card-img" style="background:url('https://images.squarespace-cdn.com/content/69abf40dda0d6b29e5683736/1fa3eaba-57e9-472b-b5b4-473d4117aeaf/Gemini_Generated_Image_f878rmf878rmf878.png?format=500w') center/cover no-repeat;"></div></a>
+        <div class="cc-shop-card-info">
+          <div class="cc-shop-card-name"><a href="/pastel-assortment">Pastel Assortment</a></div>
+          <div class="cc-shop-card-sub">Rose, ivory, sky, mint, lavender.</div>
+          <div class="cc-shop-card-price">$36 · 250g</div>
+          <button class="cc-shop-card-atc" data-product="Pastel Assortment" data-id="pastel-assortment" data-price="36">Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="cc-shop-card">
+        <a href="/chocolate-fondente" class="cc-shop-card-img-link"><div class="cc-shop-card-img" style="background:url('https://images.squarespace-cdn.com/content/69abf40dda0d6b29e5683736/bc4f0733-2fff-4683-b45f-6751fe6be0f4/Gemini_Generated_Image_hknxqphknxqphknx.png?format=500w') center/cover no-repeat;"></div></a>
+        <div class="cc-shop-card-info">
+          <div class="cc-shop-card-name"><a href="/chocolate-fondente">Chocolate Fondente</a></div>
+          <div class="cc-shop-card-sub">Dark Sicilian chocolate. Avola almond core.</div>
+          <div class="cc-shop-card-price">$38 · 250g</div>
+          <button class="cc-shop-card-atc" data-product="Chocolate Fondente" data-id="chocolate-fondente" data-price="38">Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="cc-shop-card">
+        <a href="/limone-di-sicilia" class="cc-shop-card-img-link"><div class="cc-shop-card-img" style="background:url('https://images.squarespace-cdn.com/content/69abf40dda0d6b29e5683736/9f80812e-a824-486f-8209-9d0ecf29e049/Gemini_Generated_Image_gqai3ygqai3ygqai.png?format=500w') center/cover no-repeat;"></div></a>
+        <div class="cc-shop-card-info">
+          <div class="cc-shop-card-name"><a href="/limone-di-sicilia">Limone di Sicilia</a></div>
+          <div class="cc-shop-card-sub">Bright lemon zest. Summer in every bite.</div>
+          <div class="cc-shop-card-price">$36 · 250g</div>
+          <button class="cc-shop-card-atc" data-product="Limone di Sicilia" data-id="limone-di-sicilia" data-price="36">Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="cc-shop-card">
+        <a href="/pistacchio-di-bronte" class="cc-shop-card-img-link"><div class="cc-shop-card-img" style="background:url('https://images.squarespace-cdn.com/content/69abf40dda0d6b29e5683736/ed988f79-7658-4bbf-9091-90519abac999/Gemini_Generated_Image_e0npjne0npjne0np.png?format=500w') center/cover no-repeat;"></div></a>
+        <div class="cc-shop-card-info">
+          <div class="cc-shop-card-name"><a href="/pistacchio-di-bronte">Pistacchio di Bronte</a></div>
+          <div class="cc-shop-card-sub">Green gold from the slopes of Etna.</div>
+          <div class="cc-shop-card-price">$42 · 250g</div>
+          <button class="cc-shop-card-atc" data-product="Pistacchio di Bronte" data-id="pistacchio-di-bronte" data-price="42">Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="cc-shop-card">
+        <a href="/bomboniera" class="cc-shop-card-img-link"><div class="cc-shop-card-img" style="background:url('https://images.squarespace-cdn.com/content/69abf40dda0d6b29e5683736/1804291a-0fc0-4c04-9759-1d1f0a840ec9/bomboniera-10-thumb.jpg') center/cover no-repeat;"></div></a>
+        <div class="cc-shop-card-info">
+          <div class="cc-shop-card-name"><a href="/bomboniera">Wedding Bomboniere</a></div>
+          <div class="cc-shop-card-sub">Elegant favour boxes. A Sicilian wedding tradition.</div>
+          <div class="cc-shop-card-price">From $7 per guest</div>
+          <button class="cc-shop-card-atc" data-product="Wedding Bomboniere" data-id="wedding-bomboniere" data-price="7">Add to Cart</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- POPUP OVERLAY -->
+<div class="cc-popup-overlay" id="cc-shop-popup">
+  <div class="cc-popup">
+    <button class="cc-popup-close" id="cc-shop-popup-close">×</button>
+    <div id="cc-shop-popup-form">
+      <div class="cc-popup-title">Coming Soon</div>
+      <p class="cc-popup-msg">We are currently preparing our collection and this product is not yet available for purchase. Leave your email below and we will notify you as soon as it is ready.</p>
+      <div class="cc-popup-divider"></div>
+      <div class="cc-popup-email-label">Your Email</div>
+      <input type="email" class="cc-popup-email" id="cc-shop-popup-email" placeholder="name@example.com">
+      <button class="cc-popup-submit" id="cc-shop-popup-submit">Notify Me</button>
+      <button class="cc-popup-skip" id="cc-shop-popup-skip">No thanks</button>
+    </div>
+    <div class="cc-popup-thanks" id="cc-shop-popup-thanks">
+      <div class="cc-popup-title">Thank You</div>
+      <p class="cc-popup-msg">We will let you know as soon as this product becomes available. In the meantime, follow us on <a href="https://www.instagram.com/cafieroconfetti/" target="_blank" style="color:#C9A96E;text-decoration:underline;">Instagram</a> for updates.</p>
+    </div>
+  </div>
+</div>
+
+<!-- WEDDING CTA -->
+<div class="cc-shop-cta">
+  <div class="cc-shop-cta-inner">
+    <div class="cc-section-label" style="margin-bottom:20px;">Weddings &amp; Events</div>
+    <h2>Planning a celebration?</h2>
+    <p>We offer bespoke confetti favours for weddings, baptisms, and milestone events. Custom colours, personalised packaging, and volume pricing available.</p>
+    <a href="/weddings#cc-consult-form" class="cc-btn">Begin Your Consultation →</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="cc-footer">
+  <div class="cc-footer-inner">
+    <div>
+      <div class="cc-footer-brand">CAFIERO</div>
+      <div class="cc-footer-tagline">The ritual sweet of celebration.<br>Handcrafted in Avola, Sicily.</div>
+    </div>
+    <div>
+      <h4>Navigate</h4>
+      <a href="/shop">Shop</a>
+      <a href="/the-ritual">The Ritual</a>
+      <a href="/weddings">Weddings</a>
+      <a href="/gifting">Gifting</a>
+      <a href="/journal">Journal</a>
+    </div>
+    <div>
+      <h4>Connect</h4>
+      <a href="/contact">Contact</a>
+      <a href="https://www.instagram.com/cafieroconfetti/" target="_blank">Instagram</a>
+      <a href="https://www.pinterest.com/cafieroconfetti/" target="_blank">Pinterest</a>
+    </div>
+  </div>
+  <div class="cc-footer-bottom">
+    <div class="cc-footer-copy">© 2026 Cafiero Confetti. All rights reserved.</div>
+    <div style="display:flex;gap:20px;">
+      <a href="/shipping" style="font-size:12px;color:rgba(250,248,244,0.3);">Shipping</a>
+      <a href="/privacy" style="font-size:12px;color:rgba(250,248,244,0.3);">Privacy</a>
+      <a href="/terms" style="font-size:12px;color:rgba(250,248,244,0.3);">Terms</a>
+    </div>
+  </div>
+</div>
+
+<script type="text/template" id="cc-shop-js">
+(function(){
+  /* GA4 */
+  var gs=document.createElement('script');gs.async=true;gs.src='https://www.googletagmanager.com/gtag/js?id=G-VGPJM6HCJ6';document.head.appendChild(gs);
+  window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-VGPJM6HCJ6');
+
+  /* Google Form config */
+  var FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSfBhd0qtqERBLt6_WMYKGyD1rSDFMc-qIt5YoN1-oTd6g-jcA/formResponse';
+  var ENTRY_PRODUCT = 'entry.1223057583';
+  var ENTRY_EMAIL = 'entry.1152237375';
+  var ENTRY_URL = 'entry.821370900';
+
+  var currentProduct = '';
+
+  function logToForm(productName, email) {
+    var params = new URLSearchParams();
+    params.append(ENTRY_PRODUCT, productName + ' x1');
+    params.append(ENTRY_EMAIL, email || '');
+    params.append(ENTRY_URL, window.location.href);
+    params.append('entry.1603324237', '1');
+    fetch(FORM_URL, { method:'POST', mode:'no-cors', headers:{'Content-Type':'application/x-www-form-urlencoded'}, body:params.toString() }).catch(function(){});
+  }
+
+  /* Popup elements */
+  var popupOverlay = document.getElementById('cc-shop-popup');
+  var popupClose = document.getElementById('cc-shop-popup-close');
+  var popupEmail = document.getElementById('cc-shop-popup-email');
+  var popupSubmit = document.getElementById('cc-shop-popup-submit');
+  var popupSkip = document.getElementById('cc-shop-popup-skip');
+  var popupFormDiv = document.getElementById('cc-shop-popup-form');
+  var popupThanks = document.getElementById('cc-shop-popup-thanks');
+
+  function showPopup() { popupOverlay.classList.add('cc-popup-open'); }
+  function hidePopup() {
+    popupOverlay.classList.remove('cc-popup-open');
+    popupFormDiv.style.display = '';
+    popupThanks.style.display = 'none';
+    popupEmail.value = '';
+    popupEmail.style.borderColor = '';
+    popupEmail.setAttribute('placeholder', 'name@example.com');
+  }
+
+  popupClose.addEventListener('click', hidePopup);
+  popupOverlay.addEventListener('click', function(e) { if (e.target === popupOverlay) hidePopup(); });
+  popupSkip.addEventListener('click', hidePopup);
+
+  popupSubmit.addEventListener('click', function() {
+    var email = popupEmail.value.trim();
+    if (!email || email.indexOf('@') === -1) {
+      popupEmail.style.borderColor = '#c44';
+      popupEmail.setAttribute('placeholder', 'Please enter a valid email');
+      return;
+    }
+    logToForm(currentProduct, email);
+    popupFormDiv.style.display = 'none';
+    popupThanks.style.display = 'block';
+    setTimeout(hidePopup, 4000);
+  });
+
+  /* ATC button click handlers */
+  var atcButtons = document.querySelectorAll('.cc-shop-card-atc');
+  for (var i = 0; i < atcButtons.length; i++) {
+    atcButtons[i].addEventListener('click', function() {
+      var productName = this.getAttribute('data-product');
+      var productId = this.getAttribute('data-id');
+      var price = parseFloat(this.getAttribute('data-price'));
+
+      currentProduct = productName;
+
+      /* GA4 add_to_cart event */
+      if (typeof gtag === 'function') {
+        gtag('event', 'add_to_cart', {
+          currency: 'USD',
+          value: price,
+          items: [{
+            item_id: productId,
+            item_name: productName,
+            item_category: 'Confetti',
+            price: price,
+            quantity: 1
+          }]
+        });
+      }
+
+      /* Log ATC click to Google Form */
+      logToForm(productName, '');
+
+      /* Show popup */
+      showPopup();
+    });
+  }
+})();
+</script>
+<img src="data:," onerror="var s=document.createElement('script');s.text=document.getElementById('cc-shop-js').textContent;document.body.appendChild(s);this.remove();" style="display:none">
+</div>
+</body>
+</html>
