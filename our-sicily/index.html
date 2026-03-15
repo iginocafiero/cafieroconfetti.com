@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Sicily — Cafiero Confetti</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&display=swap" rel="stylesheet">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TBXM97PP8D"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-TBXM97PP8D");</script>
+</head>
+<body style="margin:0;padding:0;">
+<div id="cafiero-confetti">
+<style>
+#cafiero-confetti { margin:0; padding:0; font-family:'Barlow',sans-serif; font-weight:300; color:#2C2A26; background:#FAF8F4; line-height:1.6; -webkit-font-smoothing:antialiased; overflow-x:hidden; }
+#cafiero-confetti *, #cafiero-confetti *::before, #cafiero-confetti *::after { margin:0; padding:0; box-sizing:border-box; }
+#cafiero-confetti a { color:inherit; text-decoration:none; }
+
+/* NAV */
+#cafiero-confetti .cc-nav { position:fixed; top:0; left:0; right:0; z-index:1000; padding:20px 40px; display:flex; justify-content:space-between; align-items:center; background:rgba(250,248,244,0.97); backdrop-filter:blur(10px); box-shadow:0 1px 0 rgba(0,0,0,0.06); }
+#cafiero-confetti .cc-nav-brand { font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:300; letter-spacing:0.2em; color:#2C2A26; }
+#cafiero-confetti .cc-nav-links { display:flex; gap:32px; align-items:center; }
+#cafiero-confetti .cc-nav-links a { font-family:'Barlow',sans-serif; font-weight:400; font-size:13px; letter-spacing:0.1em; text-transform:uppercase; color:#2C2A26; transition:color 0.3s ease; }
+#cafiero-confetti .cc-nav-links a:hover { color:#C9A96E; }
+#cafiero-confetti .cc-nav-mobile { display:none; cursor:pointer; }
+#cafiero-confetti .cc-nav-mobile span { display:block; width:24px; height:1.5px; background:#2C2A26; margin:5px 0; }
+
+/* COMING SOON */
+#cafiero-confetti .cc-coming { display:flex; flex-direction:column; align-items:center; justify-content:center; min-height:100vh; text-align:center; padding:40px; }
+#cafiero-confetti .cc-coming-label { font-family:'Barlow Condensed',sans-serif; font-weight:500; font-size:12px; letter-spacing:0.25em; text-transform:uppercase; color:#C9A96E; margin-bottom:24px; }
+#cafiero-confetti .cc-coming h1 { font-family:'Cormorant Garamond',serif; font-weight:300; font-size:clamp(36px, 5vw, 56px); color:#2C2A26; margin-bottom:16px; line-height:1.1; }
+#cafiero-confetti .cc-coming p { font-family:'Barlow',sans-serif; font-weight:300; font-size:16px; color:#8A847A; max-width:480px; line-height:1.7; margin-bottom:40px; }
+#cafiero-confetti .cc-coming .cc-divider { width:60px; height:1px; background:#D4C5A9; margin:0 auto 40px; }
+#cafiero-confetti .cc-btn { display:inline-block; font-family:'Barlow Condensed',sans-serif; font-weight:500; font-size:13px; letter-spacing:0.2em; text-transform:uppercase; padding:14px 40px; border:1.5px solid #C9A96E; color:#C9A96E; background:transparent; cursor:pointer; transition:all 0.3s ease; }
+#cafiero-confetti .cc-btn:hover { background:#C9A96E; color:#FAF8F4; }
+
+/* FOOTER */
+#cafiero-confetti .cc-footer { background:#2C2A26; padding:40px; text-align:center; }
+#cafiero-confetti .cc-footer-brand { font-family:'Cormorant Garamond',serif; font-size:18px; font-weight:300; letter-spacing:0.15em; color:#C9A96E; margin-bottom:8px; }
+#cafiero-confetti .cc-footer-copy { font-family:'Barlow',sans-serif; font-weight:300; font-size:12px; color:rgba(250,248,244,0.3); }
+
+@media (max-width:768px) {
+  #cafiero-confetti .cc-nav-links { display:none; }
+  #cafiero-confetti .cc-nav-mobile { display:block; }
+}
+</style>
+
+<!-- NAV -->
+<div class="cc-nav">
+  <a href="/" class="cc-nav-brand">CAFIERO</a>
+  <div class="cc-nav-links">
+    <a href="/shop">Shop</a>
+    <a href="/the-ritual">The Ritual</a>
+    <a href="/weddings">Weddings</a>
+    <a href="/gifting">Gifting</a>
+    <a href="/journal">Journal</a>
+    <a href="/contact">Contact</a>
+  </div>
+  <div class="cc-nav-mobile" onclick="this.classList.toggle('active')">
+    <span></span><span></span><span></span>
+  </div>
+</div>
+
+<!-- COMING SOON -->
+<div class="cc-coming">
+  <div class="cc-coming-label">Coming Soon</div>
+  <h1 id="cc-page-title">Our Sicily</h1>
+  <div class="cc-divider"></div>
+  <p id="cc-page-desc">The land, the light, the almonds of Avola. A story of place and provenance.</p>
+  <a href="/" class="cc-btn">Return Home</a>
+</div>
+
+<!-- FOOTER -->
+<div class="cc-footer">
+  <div class="cc-footer-brand">CAFIERO</div>
+  <div class="cc-footer-copy">© 2026 Cafiero Confetti</div>
+</div>
+
+<script>
+(function(){
+  var gs=document.createElement('script');gs.async=true;gs.src='https://www.googletagmanager.com/gtag/js?id=G-VGPJM6HCJ6';document.head.appendChild(gs);
+  window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-VGPJM6HCJ6');
+})();
+</script>
+</div>
+</body>
+</html>
