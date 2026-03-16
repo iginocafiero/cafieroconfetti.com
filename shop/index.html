@@ -61,52 +61,19 @@
 #cafiero-confetti .cc-shop-card-atc:active { transform:scale(0.97); }
 
 /* ===== POPUP OVERLAY ===== */
-#cafiero-confetti .cc-popup-overlay { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(44,42,38,0.55); z-index:9999; align-items:center; justify-content:center; }
-#cafiero-confetti .cc-popup-overlay.cc-popup-open { display:flex; }
-#cafiero-confetti .cc-popup { background:#FAF8F4; max-width:440px; width:90%; padding:40px 36px; text-align:center; position:relative; border-radius:2px; box-shadow:0 20px 60px rgba(0,0,0,0.15); }
-#cafiero-confetti .cc-popup-close { position:absolute; top:14px; right:18px; background:none; border:none; font-size:22px; color:#B0A99F; cursor:pointer; line-height:1; }
-#cafiero-confetti .cc-popup-close:hover { color:#2C2A26; }
-#cafiero-confetti .cc-popup-title { font-family:'Cormorant Garamond',serif; font-weight:300; font-style:italic; font-size:26px; color:#2C2A26; margin-bottom:12px; }
-#cafiero-confetti .cc-popup-msg { font-size:15px; color:#8A847A; line-height:1.7; margin-bottom:24px; }
-#cafiero-confetti .cc-popup-divider { width:40px; height:1px; background:#D4C5A9; margin:0 auto 24px; }
-#cafiero-confetti .cc-popup-email-label { font-family:'Barlow Condensed',sans-serif; font-weight:500; font-size:12px; letter-spacing:0.15em; text-transform:uppercase; color:#B0A99F; margin-bottom:10px; }
-#cafiero-confetti .cc-popup-email { width:100%; height:44px; border:1.5px solid #D4C5A9; background:transparent; padding:0 16px; font-family:'Barlow',sans-serif; font-size:15px; color:#2C2A26; outline:none; margin-bottom:16px; }
-#cafiero-confetti .cc-popup-email:focus { border-color:#C9A96E; }
-#cafiero-confetti .cc-popup-submit { display:inline-block; font-family:'Barlow Condensed',sans-serif; font-weight:500; font-size:14px; letter-spacing:0.2em; text-transform:uppercase; padding:14px 44px; border:none; background:#C9A96E; color:#FAF8F4; cursor:pointer; transition:all 0.3s; }
-#cafiero-confetti .cc-popup-submit:hover { background:#B8983F; }
-#cafiero-confetti .cc-popup-skip { display:block; margin-top:14px; font-size:13px; color:#B0A99F; cursor:pointer; background:none; border:none; font-family:'Barlow',sans-serif; }
-#cafiero-confetti .cc-popup-skip:hover { color:#8A847A; }
-#cafiero-confetti .cc-popup-thanks { display:none; }
-#cafiero-confetti .cc-popup-thanks p { font-size:15px; color:#8A847A; line-height:1.7; }
-
-/* ===== WEDDING CTA ===== */
-#cafiero-confetti .cc-shop-cta { padding:80px 40px; background:#F3F0EA; text-align:center; }
-#cafiero-confetti .cc-shop-cta-inner { max-width:640px; margin:0 auto; }
-#cafiero-confetti .cc-shop-cta h2 { font-family:'Cormorant Garamond',serif; font-weight:300; font-style:italic; font-size:clamp(28px, 4vw, 40px); color:#2C2A26; margin-bottom:16px; }
-#cafiero-confetti .cc-shop-cta p { font-family:'Barlow',sans-serif; font-weight:300; font-size:15px; color:#8A847A; line-height:1.7; margin-bottom:32px; }
-
-/* ===== FOOTER ===== */
-#cafiero-confetti .cc-footer { background:#2C2A26; padding:60px 40px 40px; }
-#cafiero-confetti .cc-footer-inner { max-width:1100px; margin:0 auto; display:grid; grid-template-columns:1.5fr 1fr 1fr; gap:40px; }
-#cafiero-confetti .cc-footer-brand { font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:300; letter-spacing:0.15em; color:#C9A96E; margin-bottom:16px; }
-#cafiero-confetti .cc-footer-tagline { font-family:'Cormorant Garamond',serif; font-style:italic; font-size:15px; color:rgba(250,248,244,0.5); line-height:1.6; }
-#cafiero-confetti .cc-footer h4 { font-family:'Barlow Condensed',sans-serif; font-weight:500; font-size:12px; letter-spacing:0.2em; text-transform:uppercase; color:rgba(250,248,244,0.4); margin-bottom:16px; }
-#cafiero-confetti .cc-footer a { font-family:'Barlow',sans-serif; font-weight:300; font-size:14px; color:rgba(250,248,244,0.65); display:block; margin-bottom:10px; transition:color 0.3s ease; }
-#cafiero-confetti .cc-footer a:hover { color:#C9A96E; }
-#cafiero-confetti .cc-footer-bottom { max-width:1100px; margin:40px auto 0; padding-top:24px; border-top:1px solid rgba(250,248,244,0.08); display:flex; justify-content:space-between; align-items:center; }
-#cafiero-confetti .cc-footer-copy { font-family:'Barlow',sans-serif; font-weight:300; font-size:12px; color:rgba(250,248,244,0.3); }
-
-/* ===== RESPONSIVE ===== */
-@media (max-width:768px) {
-  #cafiero-confetti .cc-nav-links { display:none; }
-  #cafiero-confetti .cc-nav-mobile { display:block; }
-  #cafiero-confetti .cc-shop-grid { grid-template-columns:repeat(2, 1fr); }
-  #cafiero-confetti .cc-footer-inner { grid-template-columns:1fr; }
-}
-@media (max-width:480px) {
-  #cafiero-confetti .cc-shop-grid { grid-template-columns:1fr; }
-}
-</style>
+#cafiero-confetti .cc-popup-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:9999;display:none;align-items:center;justify-content:center}
+    .cc-popup-overlay.active{display:flex}
+    #caf-classic .cc-popup{background:#fff;max-width:440px;width:90%;padding:40px 36px;border-radius:8px;text-align:center;position:relative;font-family:Cormorant Garamond,serif}
+    #caf-classic .cc-popup .cc-popup-close{position:absolute;top:12px;right:16px;background:none;border:none;font-size:24px;cursor:pointer;color:#666;font-family:sans-serif}
+    #caf-classic .cc-popup h3{font-size:22px;font-weight:400;margin:0 0 12px;letter-spacing:1px;color:#1a1a1a}
+    #caf-classic .cc-popup p{font-size:15px;line-height:1.6;color:#555;margin:0 0 20px}
+    #caf-classic .cc-popup .cc-popup-form-inner{display:flex;flex-direction:column;gap:10px;align-items:center}
+    #caf-classic .cc-popup .cc-popup-email-input{width:100%;max-width:300px;padding:10px 14px;border:1px solid #ccc;border-radius:4px;font-size:14px;font-family:Montserrat,sans-serif}
+    #caf-classic .cc-popup .cc-popup-submit-btn{background:#a08c6a;color:#fff;border:none;padding:10px 28px;border-radius:4px;font-size:13px;letter-spacing:1px;font-family:Montserrat,sans-serif;cursor:pointer;text-transform:uppercase}
+    #caf-classic .cc-popup .cc-popup-submit-btn:hover{background:#8b7355}
+    #caf-classic .cc-popup .cc-popup-skip-btn{background:none;border:none;color:#999;font-size:13px;cursor:pointer;font-family:Montserrat,sans-serif;margin-top:4px;text-decoration:underline}
+    #caf-classic .cc-popup .cc-popup-success{color:#8b7355;font-size:14px;font-family:Montserrat,sans-serif;display:none}
+    </style>
 
 <!-- NAV -->
 <div class="cc-nav">
@@ -223,18 +190,15 @@
 <div class="cc-popup-overlay" id="cc-shop-popup">
   <div class="cc-popup">
     <button class="cc-popup-close" id="cc-shop-popup-close">×</button>
-    <div id="cc-shop-popup-form">
-      <div class="cc-popup-title">Coming Soon</div>
-      <p class="cc-popup-msg">We are currently preparing our collection and this product is not yet available for purchase. Leave your email below and we will notify you as soon as it is ready.</p>
-      <div class="cc-popup-divider"></div>
-      <div class="cc-popup-email-label">Your Email</div>
-      <input type="email" class="cc-popup-email" id="cc-shop-popup-email" placeholder="name@example.com">
-      <button class="cc-popup-submit" id="cc-shop-popup-submit">Notify Me</button>
-      <button class="cc-popup-skip" id="cc-shop-popup-skip">No thanks</button>
+    <h3>Coming Soon</h3>
+    <p>We appreciate your interest! This product is temporarily sold out, but we are restocking very soon. Leave your email below and we will notify you the moment it is available again.</p>
+    <div class="cc-popup-form-inner" id="cc-shop-popup-form">
+      <input type="email" class="cc-popup-email-input" id="cc-shop-popup-email" placeholder="Your email address">
+      <button class="cc-popup-submit-btn" id="cc-shop-popup-submit">Notify Me</button>
+      <button class="cc-popup-skip-btn" id="cc-shop-popup-skip">No thanks, just browsing</button>
     </div>
-    <div class="cc-popup-thanks" id="cc-shop-popup-thanks">
-      <div class="cc-popup-title">Thank You</div>
-      <p class="cc-popup-msg">We will let you know as soon as this product becomes available. In the meantime, follow us on <a href="https://www.instagram.com/cafieroconfetti/" target="_blank" style="color:#C9A96E;text-decoration:underline;">Instagram</a> for updates.</p>
+    <div class="cc-popup-success" id="cc-shop-popup-thanks">
+      <p>Thank you! We’ll let you know as soon as this is back in stock.</p>
     </div>
   </div>
 </div>
