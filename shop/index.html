@@ -281,97 +281,69 @@
   </div>
 </div>
 
-<script type="text/template" id="cc-shop-js">
+<script>
 (function(){
-  /* GA4 */
-  var gs=document.createElement('script');gs.async=true;gs.src='https://www.googletagmanager.com/gtag/js?id=G-VGPJM6HCJ6';document.head.appendChild(gs);
-  window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-VGPJM6HCJ6');
-
-  /* Google Form config */
-  var FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSfBhd0qtqERBLt6_WMYKGyD1rSDFMc-qIt5YoN1-oTd6g-jcA/formResponse';
-  var ENTRY_PRODUCT = 'entry.1223057583';
-  var ENTRY_EMAIL = 'entry.1152237375';
-  var ENTRY_URL = 'entry.821370900';
-
-  var currentProduct = '';
-
-  function logToForm(productName, email) {
-    var params = new URLSearchParams();
-    params.append(ENTRY_PRODUCT, productName + ' x1');
-    params.append(ENTRY_EMAIL, email || '');
-    params.append(ENTRY_URL, window.location.href);
-    params.append('entry.1603324237', '1');
-    fetch(FORM_URL, { method:'POST', mode:'no-cors', headers:{'Content-Type':'application/x-www-form-urlencoded'}, body:params.toString() }).catch(function(){});
-  }
-
-  /* Popup elements */
-  var popupOverlay = document.getElementById('cc-shop-popup');
-  var popupClose = document.getElementById('cc-shop-popup-close');
-  var popupEmail = document.getElementById('cc-shop-popup-email');
-  var popupSubmit = document.getElementById('cc-shop-popup-submit');
-  var popupSkip = document.getElementById('cc-shop-popup-skip');
-  var popupFormDiv = document.getElementById('cc-shop-popup-form');
-  var popupThanks = document.getElementById('cc-shop-popup-thanks');
-
-  function showPopup() { popupOverlay.classList.add('cc-popup-open'); }
-  function hidePopup() {
-    popupOverlay.classList.remove('cc-popup-open');
-    popupFormDiv.style.display = '';
-    popupThanks.style.display = 'none';
-    popupEmail.value = '';
-    popupEmail.style.borderColor = '';
-    popupEmail.setAttribute('placeholder', 'name@example.com');
-  }
-
-  popupClose.addEventListener('click', hidePopup);
-  popupOverlay.addEventListener('click', function(e) { if (e.target === popupOverlay) hidePopup(); });
-  popupSkip.addEventListener('click', hidePopup);
-
-  popupSubmit.addEventListener('click', function() {
-    var email = popupEmail.value.trim();
-    if (!email || email.indexOf('@') === -1) {
-      popupEmail.style.borderColor = '#c44';
-      popupEmail.setAttribute('placeholder', 'Please enter a valid email');
-      return;
-    }
-    logToForm(currentProduct, email);
-    popupFormDiv.style.display = 'none';
-    popupThanks.style.display = 'block';
-    setTimeout(hidePopup, 4000);
+var WEBHOOK="https://script.google.com/macros/s/AKfycbw9rNygdKnzmE14J6zvrFTWi2a8fC8FuxsHAEQc1-Z7oAOsyanSxbIxHeg-s3K79Cf2/exec";
+var currentProduct="";
+var popupOverlay=document.getElementById("cc-shop-popup");
+var popupClose=document.getElementById("cc-shop-popup-close");
+var popupEmail=document.getElementById("cc-shop-popup-email");
+var popupSubmit=document.getElementById("cc-shop-popup-submit");
+var popupSkip=document.getElementById("cc-shop-popup-skip");
+var popupFormDiv=document.getElementById("cc-shop-popup-form");
+var popupThanks=document.getElementById("cc-shop-popup-thanks");
+function showPopup(product){
+  currentProduct=product;
+  popupFormDiv.style.display="";
+  popupThanks.style.display="none";
+  popupEmail.value="";
+  popupEmail.style.borderColor="#ccc";
+  popupSubmit.textContent="Notify Me";
+  popupSubmit.disabled=false;
+  popupOverlay.style.display="flex";
+}
+function hidePopup(){
+  popupOverlay.style.display="none";
+  popupEmail.value="";
+}
+function logToWebhook(email,product){
+  fetch(WEBHOOK,{
+    method:"POST",
+    mode:"no-cors",
+    headers:{"Content-Type":"text/plain;charset=utf-8"},
+    body:JSON.stringify({email:email,product:product,page:window.location.pathname})
   });
-
-  /* ATC button click handlers */
-  var atcButtons = document.querySelectorAll('.cc-shop-card-atc');
-  for (var i = 0; i < atcButtons.length; i++) {
-    atcButtons[i].addEventListener('click', function() {
-      var productName = this.getAttribute('data-product');
-      var productId = this.getAttribute('data-id');
-      var price = parseFloat(this.getAttribute('data-price'));
-
-      currentProduct = productName;
-
-      /* GA4 add_to_cart event */
-      if (typeof gtag === 'function') {
-        gtag('event', 'add_to_cart', {
-          currency: 'USD',
-          value: price,
-          items: [{
-            item_id: productId,
-            item_name: productName,
-            item_category: 'Confetti',
-            price: price,
-            quantity: 1
-          }]
-        });
+}
+var atcButtons=document.querySelectorAll(".cc-shop-card-atc");
+for(var i=0;i<atcButtons.length;i++){
+  (function(btn){
+    btn.addEventListener("click",function(e){
+      e.preventDefault();
+      var card=btn.closest(".cc-shop-card");
+      var productName="";
+      if(card){
+        var h3=card.querySelector("h3");
+        if(h3) productName=h3.textContent.trim();
       }
-
-      /* Log ATC click to Google Form */
-      logToForm(productName, '');
-
-      /* Show popup */
-      showPopup();
+      showPopup(productName);
     });
-  }
+  })(atcButtons[i]);
+}
+popupClose.addEventListener("click",hidePopup);
+popupOverlay.addEventListener("click",function(e){if(e.target===popupOverlay)hidePopup();});
+popupSkip.addEventListener("click",hidePopup);
+popupSubmit.addEventListener("click",function(){
+  var email=popupEmail.value.trim();
+  if(!email||email.indexOf("@")<1){popupEmail.style.borderColor="#c00";return;}
+  popupEmail.style.borderColor="#ccc";
+  popupSubmit.textContent="Sending...";
+  popupSubmit.disabled=true;
+  logToWebhook(email,currentProduct);
+  setTimeout(function(){
+    popupFormDiv.style.display="none";
+    popupThanks.style.display="block";
+  },500);
+});
 })();
 </script>
 <img src="data:," onerror="var s=document.createElement('script');s.text=document.getElementById('cc-shop-js').textContent;document.body.appendChild(s);this.remove();" style="display:none">
