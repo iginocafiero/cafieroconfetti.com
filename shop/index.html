@@ -322,7 +322,7 @@ for(var i=0;i<atcButtons.length;i++){
       var card=btn.closest(".cc-shop-card");
       var productName="";
       if(card){
-        var h3=card.querySelector("h3");
+        var h3=card.querySelector(".cc-shop-card-name");
         if(h3) productName=h3.textContent.trim();
       }
       showPopup(productName);
