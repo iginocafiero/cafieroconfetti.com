@@ -439,41 +439,36 @@
 
   /* WEDDING FORM SUBMIT */
   window.ccWeddingSubmit = function(event) {
-    event.preventDefault();
-    var form = event.target;
-    var btn = form.querySelector("button[type=submit]");
-    var origText = btn.textContent;
-    btn.textContent = "Sending...";
-    btn.disabled = true;
+        event.preventDefault();
+        var form = event.target;
+        var btn = form.querySelector("button[type=submit]");
+        var origText = btn.textContent;
+        btn.textContent = "Sending...";
+        btn.disabled = true;
 
-    var payload = {
-      name: form.querySelector("[name=name]").value,
-      email: form.querySelector("[name=email]").value,
-      weddingDate: form.querySelector("[name=date]").value,
-      guestCount: form.querySelector("[name=guests]").value,
-      message: form.querySelector("[name=message]").value
-    };
+        var payload = {
+          name: form.querySelector("[name=name]").value,
+          email: form.querySelector("[name=email]").value,
+          weddingDate: form.querySelector("[name=date]").value,
+          guestCount: form.querySelector("[name=guests]").value,
+          message: form.querySelector("[name=message]").value
+        };
 
-    fetch("https://script.google.com/macros/s/AKfycbzRL7a22CM9OeSgBkv_rG7iG5TjbgYuaIj6sYR6TkGqT7mPy3_PpcpCMebicO0ilHkbiw/exec", {
-      method: "POST",
-      body: JSON.stringify(payload)
-    })
-    .then(function(r) { return r.json(); })
-    .then(function(data) {
-      if (data.status === "ok") {
-        form.innerHTML = '<p style="text-align:center;font-size:18px;padding:40px 0;">Thank you! We\u2019ll be in touch soon.</p>';
-      } else {
-        btn.textContent = origText;
-        btn.disabled = false;
-        alert("Something went wrong. Please try again.");
-      }
-    })
-    .catch(function() {
-      btn.textContent = origText;
-      btn.disabled = false;
-      alert("Network error. Please try again.");
-    });
-  };
+        fetch("https://script.google.com/macros/s/AKfycbzRL7a22CM9OeSgBkv_rG7iG5TjbgYuaIj6sYR6TkGqT7mPy3_PpcpCMebicO0ilHkbiw/exec", {
+          method: "POST",
+          headers: { "Content-Type": "text/plain;charset=utf-8" },
+          body: JSON.stringify(payload),
+          mode: "no-cors"
+        })
+        .then(function() {
+          form.innerHTML = '<p style="text-align:center;font-size:18px;padding:40px 0;">Thank you! We\u2019ll be in touch soon.</p>';
+        })
+        .catch(function() {
+          btn.textContent = origText;
+          btn.disabled = false;
+          alert("Network error. Please try again.");
+        });
+      };
 
   /* GA4 */
   var gs = document.createElement('script');
