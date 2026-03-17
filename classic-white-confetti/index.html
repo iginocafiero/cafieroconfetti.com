@@ -139,7 +139,7 @@ var notifyBtn=document.getElementById("notify-btn");
 var emailInput=document.getElementById("notify-email");
 var successMsg=document.getElementById("notify-success");
 var WEBHOOK="https://script.google.com/macros/s/AKfycbw9rNygdKnzmE14J6zvrFTWi2a8fC8FuxsHAEQc1-Z7oAOsyanSxbIxHeg-s3K79Cf2/exec";
-function showModal(e){if(e)e.preventDefault();overlay.classList.add("active");}
+function showModal(e){if(e)e.preventDefault();overlay.classList.add("active");if(typeof gtag==="function")gtag("event","add_to_cart",{currency:"USD",value:32,items:[{item_id:"classic-white-confetti",item_name:"Classic White Confetti",price:32,quantity:1,item_category:"confetti"}]});}
 function hideModal(){overlay.classList.remove("active");emailInput.value="";successMsg.style.display="none";notifyBtn.style.display="";}
 document.querySelectorAll(".caf-atc").forEach(function(b){b.addEventListener("click",showModal);});
 var stickyBtn=document.querySelector(".caf-sticky-btn");
@@ -159,7 +159,7 @@ fetch(WEBHOOK,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain;
 })();
 </script>
 <script>
-(function(){function l(){var s=document.createElement('script');s.src='https://www.googletagmanager.com/gtag/js?id=G-TBXM97PP8D';s.async=true;document.head.appendChild(s);window.dataLayer=window.dataLayer||[];function g(){dataLayer.push(arguments);}g('js',new Date());g('config','G-TBXM97PP8D');}if('requestIdleCallback' in window){requestIdleCallback(l,{timeout:3000});}else{setTimeout(l,1500);}})();
+(function(){function l(){var s=document.createElement('script');s.src='https://www.googletagmanager.com/gtag/js?id=G-VGPJM6HCJ6';s.async=true;document.head.appendChild(s);window.dataLayer=window.dataLayer||[];function g(){dataLayer.push(arguments);}g('js',new Date());g('config','G-VGPJM6HCJ6');}if('requestIdleCallback' in window){requestIdleCallback(l,{timeout:3000});}else{setTimeout(l,1500);}})();
 requestAnimationFrame(function(){var stickyBar=document.getElementById('caf-sticky');var cafAtc=document.querySelector('.caf-atc');if(stickyBar&&cafAtc){window.addEventListener('scroll',function(){var r=cafAtc.getBoundingClientRect();if(r.bottom<0&&window.scrollY>200){stickyBar.classList.add('caf-sticky-show')}else{stickyBar.classList.remove('caf-sticky-show')}},{passive:true});}});</script>
 <div class="caf-sticky-bar" id="caf-sticky"><div class="caf-sticky-info"><span class="caf-sticky-name">Classic White Confetti</span><span class="caf-sticky-price">$32</span></div><button class="caf-sticky-btn" onclick="document.querySelector('.caf-atc').click();window.scrollTo({top:0,behavior:'smooth'})">ADD TO CART</button></div></body>
 </html>
