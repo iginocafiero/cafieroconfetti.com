@@ -186,4 +186,8 @@ gtag("js",new Date());gtag("config","G-VGPJM6HCJ6");
 gtag("event","view_item",{currency:"USD",value:38,items:[{item_id:"chocolate-fondente",item_name:"Chocolate Fondente",price:38,quantity:1,item_category:"confetti"}]});
 })();
 </script>
+
+<script>
+document.querySelectorAll(".caf-atc,.caf-sticky-btn").forEach(function(btn){btn.addEventListener("click",function(){if(typeof window.gtag==="function")window.gtag("event","add_to_cart",{currency:"USD",value:38,items:[{item_id:"chocolate-fondente",item_name:"Chocolate Fondente",price:38,quantity:1,item_category:"confetti"}]});});});
+</script>
 </body></html>

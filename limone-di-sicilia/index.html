@@ -186,5 +186,9 @@ gtag("js",new Date());gtag("config","G-VGPJM6HCJ6");
 gtag("event","view_item",{currency:"USD",value:36,items:[{item_id:"limone-di-sicilia",item_name:"Limone di Sicilia",price:36,quantity:1,item_category:"confetti"}]});
 })();
 </script>
+
+<script>
+document.querySelectorAll(".caf-atc,.caf-sticky-btn").forEach(function(btn){btn.addEventListener("click",function(){if(typeof window.gtag==="function")window.gtag("event","add_to_cart",{currency:"USD",value:36,items:[{item_id:"limone-di-sicilia",item_name:"Limone di Sicilia",price:36,quantity:1,item_category:"confetti"}]});});});
+</script>
 </body>
 </html>
