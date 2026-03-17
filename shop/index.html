@@ -99,6 +99,26 @@
 #cafiero-confetti .cc-footer-inner a:hover{color:#faf8f4;}
 #cafiero-confetti .cc-footer-bottom{max-width:1100px;margin:40px auto 0;padding-top:20px;border-top:1px solid rgba(250,248,244,0.1);display:flex;justify-content:space-between;align-items:center;}
 #cafiero-confetti .cc-footer-copy{font-family:Montserrat,sans-serif;font-size:12px;color:rgba(250,248,244,0.3);}
+
+
+/* ===== MOBILE RESPONSIVE ===== */
+@media(max-width:768px){
+  #cafiero-confetti .cc-nav{padding:14px 20px;}
+  #cafiero-confetti .cc-nav-links{display:none;}
+  #cafiero-confetti .cc-nav-links.cc-nav-open{display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:#fff;padding:20px;gap:16px;box-shadow:0 4px 12px rgba(0,0,0,0.08);}
+  #cafiero-confetti .cc-nav-mobile{display:block;}
+  #cafiero-confetti .cc-shop-hero{padding:100px 20px 50px;}
+  #cafiero-confetti .cc-shop-hero h1{font-size:28px;}
+  #cafiero-confetti .cc-shop-hero p{font-size:14px;max-width:100%;}
+  #cafiero-confetti .cc-shop-grid-wrap{padding:40px 16px 60px;}
+  #cafiero-confetti .cc-shop-grid{grid-template-columns:1fr;gap:20px;}
+  #cafiero-confetti .cc-shop-card-img-link img{aspect-ratio:4/3;object-fit:cover;}
+  #cafiero-confetti .cc-shop-cta{max-width:100%;margin:0 auto;padding:32px 20px;}
+  #cafiero-confetti .cc-shop-cta h2{font-size:24px;}
+  #cafiero-confetti .cc-footer{padding:40px 20px;}
+  #cafiero-confetti .cc-footer-inner{grid-template-columns:1fr;gap:24px;text-align:center;}
+  #cafiero-confetti .cc-popup{padding:28px 20px !important;}
+}
 </style>
 
 <!-- NAV -->
@@ -339,6 +359,23 @@ popupSubmit.addEventListener("click",function(){
 
 <script>
 document.querySelectorAll(".cc-shop-card-atc").forEach(function(btn){btn.addEventListener("click",function(){if(typeof window.gtag==="function"){var pn=btn.closest(".cc-shop-card").querySelector(".cc-shop-card-name").textContent.trim();window.gtag("event","add_to_cart",{currency:"USD",value:0,items:[{item_name:pn,quantity:1,item_category:"confetti"}]});}});});
+</script>
+
+<script>
+(function(){
+  var btn=document.querySelector(".cc-nav-mobile");
+  var links=document.querySelector(".cc-nav-links");
+  if(btn&&links){
+    btn.addEventListener("click",function(){
+      links.classList.toggle("cc-nav-open");
+    });
+    document.addEventListener("click",function(e){
+      if(!btn.contains(e.target)&&!links.contains(e.target)){
+        links.classList.remove("cc-nav-open");
+      }
+    });
+  }
+})();
 </script>
 </body>
 </html>
