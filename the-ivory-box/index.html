@@ -46,14 +46,14 @@
       <h1 class="caf-product-title">The Ivory Box</h1>
       <p class="caf-product-desc">A timeless wedding favor, handcrafted in the Sicilian tradition. Five sugar-coated Mandorla di Avola almonds presented in an elegant ivory keepsake box—a graceful gesture of sweetness and good fortune for every guest at your table.</p>
       <div class="caf-product-price-line">
-        <span class="caf-price">$38</span>
-        <span class="caf-per">· 10 favors · $3.80 each</span>
+        <span class="caf-price">$150</span>
+        <span class="caf-per">· 10 favors · $15 each</span>
       </div>
       <div class="caf-qty-section">
         <label>Quantity</label>
-        <select id="qty-select" onchange="updateTotal()"><option value="1">1 box (10 favors)</option><option value="2">2 boxes (20 favors) — $76</option><option value="5">5 boxes (50 favors) — $190</option><option value="10">10 boxes (100 favors) — $380</option></select>
+        <select id="qty-select" onchange="updateTotal()"><option value="1">1 box (10 favors)</option><option value="2">2 boxes (20 favors) — $300</option><option value="5">5 boxes (50 favors) — $750</option><option value="10">10 boxes (100 favors) — $1,500</option></select>
       </div>
-      <div class="caf-total">Total: <span class="caf-total-amt" id="total-amt">$38</span></div>
+      <div class="caf-total">Total: <span class="caf-total-amt" id="total-amt">$150</span></div>
       <button class="caf-atc">Add to Cart</button>
     </div>
   </div>
@@ -132,7 +132,7 @@
 </div>
 
 <script>
-function updateTotal(){var s=document.getElementById('qty-select');var a=document.getElementById('total-amt');var q=parseInt(s.value)||1;a.textContent='$'+(q*38);}
+function updateTotal(){var s=document.getElementById('qty-select');var a=document.getElementById('total-amt');var q=parseInt(s.value)||1;a.textContent='$'+(q*150);}
 </script>
 <script>
 (function(){
@@ -178,17 +178,17 @@ notifyBtn.addEventListener("click",function(){
 });
 })();
 </script>
-<div class="caf-sticky-bar" id="caf-sticky"><div class="caf-sticky-info"><span class="caf-sticky-name">The Ivory Box</span><span class="caf-sticky-price">$38</span></div><button class="caf-sticky-btn" onclick="document.querySelector('.caf-atc').click();window.scrollTo({top:0,behavior:'smooth'})">ADD TO CART</button></div>
+<div class="caf-sticky-bar" id="caf-sticky"><div class="caf-sticky-info"><span class="caf-sticky-name">The Ivory Box</span><span class="caf-sticky-price">$150</span></div><button class="caf-sticky-btn" onclick="document.querySelector('.caf-atc').click();window.scrollTo({top:0,behavior:'smooth'})">ADD TO CART</button></div>
 <script>
 (function(){var s=document.createElement("script");s.src="https://www.googletagmanager.com/gtag/js?id=G-VGPJM6HCJ6";s.async=true;document.head.appendChild(s);
 window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}window.gtag=gtag;
 gtag("js",new Date());gtag("config","G-VGPJM6HCJ6");
-gtag("event","view_item",{currency:"USD",value:38,items:[{item_id:"the-ivory-box",item_name:"The Ivory Box",price:38,quantity:1,item_category:"confetti"}]});
+gtag("event","view_item",{currency:"USD",value:150,items:[{item_id:"the-ivory-box",item_name:"The Ivory Box",price:150,quantity:1,item_category:"confetti"}]});
 })();
 </script>
 
 <script>
-document.querySelectorAll(".caf-atc,.caf-sticky-btn").forEach(function(btn){btn.addEventListener("click",function(){if(typeof window.gtag==="function")window.gtag("event","add_to_cart",{currency:"USD",value:38,items:[{item_id:"the-ivory-box",item_name:"The Ivory Box",price:38,quantity:1,item_category:"confetti"}]});});});
+document.querySelectorAll(".caf-atc,.caf-sticky-btn").forEach(function(btn){btn.addEventListener("click",function(){if(typeof window.gtag==="function")window.gtag("event","add_to_cart",{currency:"USD",value:150,items:[{item_id:"the-ivory-box",item_name:"The Ivory Box",price:150,quantity:1,item_category:"confetti"}]});});});
 </script>
 </body>
 </html>
